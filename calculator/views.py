@@ -142,10 +142,10 @@ def testClusterView(request):
 
 
     # Load in model
-    model = pickle.load(open('calculator/ml/aggClust.sav', "rb"))
+    model = pickle.load(open('psdcalculator/static/ml/aggClust.sav', "rb"))
 
     # Load in DF
-    X = pd.read_csv('calculator/ml/X.csv')
+    X = pd.read_csv('psdcalculator/static/ml/X.csv')
 
     #Grab variables from form
     delivTypeInput = request.POST.get('delivType')
@@ -203,7 +203,7 @@ def testClusterView(request):
 
     # DNN
 
-    model = load_model('calculator/ml/nn_model_split_tasks.h5')
+    model = load_model('psdcalculator/static/ml/nn_model_split_tasks.h5')
 
     inputs = [delivTypeInput, priorityInput, pipelineInput, projTypeInput]
 
