@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PSD Calculator</title>
+    </head>
+    <header>
+        PSD Calculator
+    </header>
+
+
+
+
+
+    <body>
+        <p>
+            Deliverable Type:
+        </p>
+
+
+      <form name="form" method="post" action="{% url 'testCluster' %}">
+
+        {% csrf_token %}
+
+            <select name="delivType">
+                {% for delivType in delivTypes %}
+                    <option value="{{ delivType.delivtype }}">{{ delivType.delivtype }}</option>
+                {% endfor %} 
+            </select> 
+
+            <p>
+                Priority:
+            </p>
+
+            <select name="priority">
+                {% for priority in priorities %}
+                    <option value="{{ priority.priority }}">{{ priority.priority }}</option>
+                {% endfor %} 
+            </select> 
+
+            <p>
+                Production Pipeline:
+            </p>
+
+            <select name="pipeline">
+                {% for pipeline in prodPipelines %}
+                    <option value="{{ pipeline.pipeline }}">{{ pipeline.pipeline }}</option>
+                {% endfor %} 
+            </select> 
+
+            <p>
+                Project Type:
+            </p>
+
+            <select name="projType">
+                {% for projType in projTypes %}
+                    <option value="{{ projType.projtype }}">{{ projType.projtype }}</option>
+                {% endfor %} 
+            </select> 
+
+
+            <p>
+              Tasks:
+            </p>
+
+
+
+
+
+
+
+
+            <p>
+                <button type="submit">Cluster</button>
+            </p>
+        </form>
+        
+
+
+
+
+
+        <a href="{% url 'runTask' %}" class="button">Tasks</a>
+
+
+
+
+    </body>
+
+
+    {% block content %}
+    {% endblock %}
+
+
+</html>  

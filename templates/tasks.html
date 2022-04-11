@@ -1,0 +1,40 @@
+
+<form name="form" method="post" action="{% url 'addTask' %}">
+
+    {% csrf_token %}
+
+    <select name="task">
+        {% for task in tasks %}
+            <option value="{{ task.task }}">{{ task.task }} -- {{ task.group }}</option>
+            <option value="{{ task.group }}" hidden="True"></option>
+        {% endfor %} 
+    </select> 
+    <button type="submit">Add</button>
+
+</form>
+
+
+
+
+
+
+
+
+<table>
+    <thead>
+        <th>Task</th>
+        <th>Group (Internal Use) </th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+        {% for sTasks in storedTasks %}
+        <tr>
+            <td>{{ sTasks.task }}</td>
+            <td>{{ sTasks.group }}</td>
+            <td>
+                <a href="{% url 'deleteTask' sTasks.id %}" class="button">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
