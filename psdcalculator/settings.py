@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-b3r3p#de(j+s(io3s+w*)*c5b2556==g$3d80vgcd9+9e6m3!x'
+SECRET_KEY = 'django-insecure-b3r3p#de(j+s(io3s+w*)*c5b2556==g$3d80vgcd9+9e6m3!x'
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') 
 
@@ -84,17 +84,26 @@ WSGI_APPLICATION = 'psdcalculator.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': 'psd2',
+#     'USER': 'postgres',
+#     'PASSWORD': '125892',
+#     'HOST': 'localhost'
+#     }
+# }  
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES['default'].update(db_from_env)     
+
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'psd2',
-    'USER': 'postgres',
-    'PASSWORD': '125892',
-    'HOST': 'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
     }
-}  
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)     
+}
+
+
 
 
 # Password validation

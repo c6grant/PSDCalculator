@@ -1,20 +1,30 @@
+
 {% extends 'index.html' %}
 {% load static %}
 {% block content %}
 
-<p>
-    {{ output }}
-
-</p>
-
-<P>
-    {{ output2 }}
-</P>
 
 
-<P>
-    {{ testOutput }}
-</P>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+<body>
+
+<h4>Project Time Prediction (in days):</h4>
+
+<div style="height:25px; width:10%; background-color:powderblue">{{ result }}</div>
+
+</body>
+</html>
+
+
+
 
 
 {% endblock %}

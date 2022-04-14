@@ -31,42 +31,6 @@ def indexPageView(request) :
     return render(request, 'index.html', context)
 
 
-def runClusterView(request):
-
-    if request.method == 'POST':
-
-
-        delivTypeInput = request.POST.get('delivType')
-        priorityInput = request.POST.get('priority')
-        pipelineInput = request.POST.get('pipeline')
-        projTypeInput = request.POST.get('projType')
-
-        output = str(delivTypeInput)
-        
-
-        delivTypes = DeliverableType.objects.all()
-        priorities = Priority.objects.all()
-        prodPipelines = ProductionPipeline.objects.all()
-        projTypes = ProjectType.objects.all()
-
-
-
-
-        context = {
-            'delivTypes': delivTypes,
-            'priorities': priorities,
-            'prodPipelines': prodPipelines,
-            'projTypes': projTypes,
-            'output': output
-
-        }
-
-
-    return render(request, 'output.html', context)
-
-
-
-
 def runTaskView(request):
 
     tasks = Task.objects.all()
@@ -138,7 +102,7 @@ def deleteTaskView(request, pk):
     return render(request, 'tasks.html', context)
 
 
-def testClusterView(request):
+def runModelView(request):
 
 
     # Load in model
@@ -229,9 +193,7 @@ def testClusterView(request):
         'prodPipelines': prodPipelines,
         'projTypes': projTypes,
         'eachTaskCount': eachTaskCount,
-        # 'output': output,
-        # 'output2': output2,
-        'testOutput': result
+        'result': result
 
     }
 

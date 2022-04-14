@@ -1,0 +1,30 @@
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'index' %}">PSD Calculator</a>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'runTask' %}">Tasks</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  {% block nvbr %}
+  {% endblock %}
+
+
+
+
+
+  <!-- <a href="{% url 'runTask' %}" class="button">Tasks</a> -->

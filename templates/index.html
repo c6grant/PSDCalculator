@@ -1,25 +1,29 @@
+{% extends 'navbar.html' %}
+{% block nvbr %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>PSD Calculator</title>
     </head>
-    <header>
-        PSD Calculator
-    </header>
+
+<br>
 
 
 
 
 
     <body>
-        <p>
-            Deliverable Type:
-        </p>
 
-
-      <form name="form" method="post" action="{% url 'testCluster' %}">
+      <form name="form" method="post" action="{% url 'runModel' %}">
 
         {% csrf_token %}
+
+
+
+            <h5>
+                Deliverable Type:
+            </h5>
 
             <select name="delivType">
                 {% for delivType in delivTypes %}
@@ -27,9 +31,14 @@
                 {% endfor %} 
             </select> 
 
-            <p>
+
+            <br>
+            <br>
+
+
+            <h5>
                 Priority:
-            </p>
+            </h5>
 
             <select name="priority">
                 {% for priority in priorities %}
@@ -37,9 +46,13 @@
                 {% endfor %} 
             </select> 
 
-            <p>
+
+            <br>
+            <br>
+
+            <h5>
                 Production Pipeline:
-            </p>
+            </h5>
 
             <select name="pipeline">
                 {% for pipeline in prodPipelines %}
@@ -47,9 +60,14 @@
                 {% endfor %} 
             </select> 
 
-            <p>
+
+            <br>
+            <br>
+
+
+            <h5>
                 Project Type:
-            </p>
+            </h5>
 
             <select name="projType">
                 {% for projType in projTypes %}
@@ -58,32 +76,14 @@
             </select> 
 
 
-            <p>
-              Tasks:
-            </p>
-
-
-
-
-
-
-
+            <br>
+            <br>
 
             <p>
-                <button type="submit">Cluster</button>
+                <button type="submit" class="btn btn-primary">Calculate Project Duration</button>
             </p>
         </form>
         
-
-
-
-
-
-        <a href="{% url 'runTask' %}" class="button">Tasks</a>
-
-
-
-
     </body>
 
 
@@ -92,3 +92,8 @@
 
 
 </html>  
+
+
+
+
+{% endblock %}
